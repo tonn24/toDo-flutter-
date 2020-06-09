@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:todoappflutter/models/todo.dart';
 import 'todoTile.dart';
+import 'package:todoappflutter/screens/todos_screen.dart';
 
 class TodoList extends StatefulWidget {
+
+  final List<Todo> todos;
+
+  TodoList(this.todos);
 
   @override
   _TodoListState createState() => _TodoListState();
@@ -10,26 +15,20 @@ class TodoList extends StatefulWidget {
 
 class _TodoListState extends State<TodoList> {
 
-  List<Todo> todos = [
-    Todo(name: 'Do the dishes'),
-    Todo(name: 'Learn programming'),
-    Todo(name: 'Go to'),
-  ];
-
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
       itemBuilder: (context, index){
       return TodoTile(
-          isChecked: todos[index].isDone,
-          todoTitle: todos[index].name,
+          isChecked: widget.todos[index].isDone,
+          todoTitle: widget.todos[index].name,
           checkBoxCallback: (bool checkBoxState){
             setState(() {
-              todos[index].toggleDone();
+              widget.todos[index].toggleDone();
             });
           }
       );
-    }, itemCount: todos.length,);
+    }, itemCount: widget.todos.length,);
   }
 }
 

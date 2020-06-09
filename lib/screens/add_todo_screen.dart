@@ -1,8 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:todoappflutter/widgets/todoList.dart';
 
 class AddTodoScreen extends StatelessWidget {
+
+  final Function addTodoCallback;
+  AddTodoScreen(this.addTodoCallback);
+
+
   @override
   Widget build(BuildContext context) {
+    String newTodoTitle;
+
     return Container(
       color: Color.fromRGBO(117, 117, 117, 1),
       child: Container(
@@ -28,6 +36,9 @@ class AddTodoScreen extends StatelessWidget {
             TextField(
               autofocus: true,
               textAlign: TextAlign.center,
+              onChanged: (newText){
+                newTodoTitle = newText;
+              },
             ),
             FlatButton(
               color: Colors.lightGreen[600],
@@ -37,7 +48,7 @@ class AddTodoScreen extends StatelessWidget {
               padding: EdgeInsets.all(8.0),
               splashColor: Colors.lightGreen[600],
               onPressed: () {
-
+                addTodoCallback(newTodoTitle);
               },
               child: Text(
                 'Add',

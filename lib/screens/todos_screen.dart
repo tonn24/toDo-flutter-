@@ -1,10 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:todoappflutter/widgets/todoWidgets.dart';
+import 'package:todoappflutter/widgets/todoList.dart';
 import 'add_todo_screen.dart';
+import 'package:todoappflutter/models/todo.dart';
 
-class TaskScreen extends StatelessWidget {
-  List<String> todos = ['Go to shop', 'Clean your bag', 'Go to school'];
+class TaskScreen extends StatefulWidget {
+  @override
+  _TaskScreenState createState() => _TaskScreenState();
+}
 
+class _TaskScreenState extends State<TaskScreen> {
+  List<Todo> todos = [
+    Todo(name: 'Do the dishes'),
+    Todo(name: 'Learn programming'),
+    Todo(name: 'Go to'),
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +27,14 @@ class TaskScreen extends StatelessWidget {
               isScrollControlled: true,
               builder: (BuildContext context) => SingleChildScrollView(
                   padding: EdgeInsets.only(bottom: MediaQuery.of(context).viewInsets.bottom),
-                  child: AddTodoScreen()));
+                  child: AddTodoScreen((newTodoTitle){
+                    setState(() {
+                      todos.add(Todo(name: newTodoTitle));
+                    });
+                    Navigator.pop(context);
+                  })
+              )
+          );
         }
       ),
       body: Column(
@@ -49,7 +65,7 @@ class TaskScreen extends StatelessWidget {
                     fontFamily: 'Times New Roman'
                   ),
                 ),
-                Text('12 tasks',
+                Text('${todos.length} tasks',
                     style: TextStyle(
                       color: Colors.white,
                       fontSize: 18.0,
@@ -67,7 +83,7 @@ class TaskScreen extends StatelessWidget {
                     topLeft: Radius.circular(20.0),
                     topRight: Radius.circular(20.0)),
               ),
-              child: TodoList()
+              child: TodoList(todos),
             ),
           ),
         ],
