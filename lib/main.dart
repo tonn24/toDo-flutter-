@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
     return ChangeNotifierProvider(
       create: (context) => TodoData(),
       child: MaterialApp(
-        home: TaskScreen()
+        home: TodoScreen()
       ),
     );
   }

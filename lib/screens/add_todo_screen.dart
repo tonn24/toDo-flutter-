@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:todoappflutter/models/todo_data.dart';
-import 'package:todoappflutter/widgets/todoList.dart';
 import 'package:provider/provider.dart';
-import 'package:todoappflutter/models/todo.dart';
+import '../constants.dart';
+
 
 
 class AddTodoScreen extends StatelessWidget {
@@ -16,7 +16,7 @@ class AddTodoScreen extends StatelessWidget {
       child: Container(
         padding: EdgeInsets.all(20.0),
         decoration: BoxDecoration(
-          color: Colors.white,
+          color: brightColor,
           borderRadius: BorderRadius.only(
               topLeft: Radius.circular(20.0),
               topRight: Radius.circular(20.0)),
