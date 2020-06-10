@@ -1,5 +1,3 @@
-import 'package:flutter/material.dart';
-
 
 class Todo {
   final String name;
@@ -10,5 +8,4 @@ class Todo {
   void toggleDone() {
     isDone = !isDone;
   }
-
 }

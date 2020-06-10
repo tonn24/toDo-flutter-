@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:todoappflutter/models/todo_data.dart';
 import 'package:todoappflutter/widgets/todoList.dart';
+import 'package:provider/provider.dart';
+import 'package:todoappflutter/models/todo.dart';
+
 
 class AddTodoScreen extends StatelessWidget {
-
-  final Function addTodoCallback;
-  AddTodoScreen(this.addTodoCallback);
-
 
   @override
   Widget build(BuildContext context) {
@@ -48,7 +48,8 @@ class AddTodoScreen extends StatelessWidget {
               padding: EdgeInsets.all(8.0),
               splashColor: Colors.lightGreen[600],
               onPressed: () {
-                addTodoCallback(newTodoTitle);
+                Provider.of<TodoData>(context, listen: false).addTodo(newTodoTitle);
+                Navigator.pop(context);
               },
               child: Text(
                 'Add',
