@@ -4,9 +4,9 @@ import 'dart:collection';
 
 class TodoData extends ChangeNotifier {
   List<Todo> _todos = [
-    Todo(name: 'Do the dishes'),
+    Todo(name: 'Go to the gym'),
     Todo(name: 'Learn programming'),
-    Todo(name: 'Go to'),
+    Todo(name: 'Read a book'),
   ];
 
   List<Todo> get todos {

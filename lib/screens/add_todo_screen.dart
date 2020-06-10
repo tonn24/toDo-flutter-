@@ -12,7 +12,7 @@ class AddTodoScreen extends StatelessWidget {
     String newTodoTitle;
 
     return Container(
-      color: Color.fromRGBO(117, 117, 117, 1),
+      color: shadowColor,
       child: Container(
         padding: EdgeInsets.all(20.0),
         decoration: BoxDecoration(
@@ -28,25 +28,27 @@ class AddTodoScreen extends StatelessWidget {
               'Add Todo',
               textAlign: TextAlign.center,
               style: TextStyle(
-                color: Colors.lightGreen[700],
+                color: darkColor,
                 fontSize: 30,
                 fontFamily: 'Times New Roman'
               ),
             ),
             TextField(
               autofocus: true,
+              style: TextStyle(color: darkColor),
               textAlign: TextAlign.center,
+              cursorColor: darkColor,
               onChanged: (newText){
                 newTodoTitle = newText;
               },
             ),
             FlatButton(
-              color: Colors.lightGreen[600],
-              textColor: Colors.white,
+              color: buttonColor,
+              textColor: brightColor,
               disabledColor: Colors.grey,
               disabledTextColor: Colors.black,
               padding: EdgeInsets.all(8.0),
-              splashColor: Colors.lightGreen[600],
+              splashColor: backgroundColor,
               onPressed: () {
                 Provider.of<TodoData>(context, listen: false).addTodo(newTodoTitle);
                 Navigator.pop(context);

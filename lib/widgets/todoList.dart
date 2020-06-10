@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'todoTile.dart';
 import 'package:provider/provider.dart';
 import 'package:todoappflutter/models/todo_data.dart';
+import '../constants.dart';
 
 class TodoList extends StatefulWidget {
 
@@ -27,11 +28,11 @@ class _TodoListState extends State<TodoList> {
                   }
               ),
               background: Container(
-                color: Colors.greenAccent[900],
+                color: brightColor,
                 child: Icon(Icons.check),
               ),
               secondaryBackground: Container(
-                color: Colors.red,
+                color: redColor,
                 child: Icon(Icons.cancel),
               ),
               onDismissed: (direction){

@@ -4,6 +4,8 @@ import 'add_todo_screen.dart';
 import 'package:provider/provider.dart';
 import 'package:todoappflutter/models/todo_data.dart';
 import '../constants.dart';
+import 'package:google_fonts/google_fonts.dart';
+
 
 class TodoScreen extends StatelessWidget {
 
@@ -42,7 +44,7 @@ class TodoScreen extends StatelessWidget {
                   child: Icon(
                     Icons.list,
                     size: 40.0,
-                    color: backgroundColor,
+                    color: darkColor,
                   ),
                   backgroundColor: brightColor,
                   radius: 30.0,
@@ -51,7 +53,7 @@ class TodoScreen extends StatelessWidget {
                 Text(
                   'Todo                               ',
                   style: TextStyle(
-                    color: brightColor,
+                    color: darkColor,
                     fontSize: 25,
                     fontWeight: FontWeight.w600,
                     fontFamily: 'Times New Roman'
