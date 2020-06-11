@@ -28,7 +28,7 @@ class _TodoListState extends State<TodoList> {
                   }
               ),
               background: Container(
-                color: brightColor,
+                color: secondBackgroundColor,
                 child: Icon(Icons.check),
               ),
               secondaryBackground: Container(
